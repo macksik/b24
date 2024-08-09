@@ -15,14 +15,14 @@ export default function Layout() {
         name="markets"
         options={{
           tabBarLabel: 'Рынки',
-          tabBarIcon: () => <TabBarIcon name="line-chart" />,
+          tabBarIcon: () => <TabBarIcon name="pie-chart" />,
         }}
       />
       <Tabs.Screen
         name="conversion"
         options={{
           tabBarLabel: 'Конвертация',
-          tabBarIcon: () => <TabBarIcon name="exchange" />,
+          tabBarIcon: () => <TabBarIcon name="pie-chart" />,
         }}
       />
       <Tabs.Screen
@@ -34,10 +34,10 @@ export default function Layout() {
       />
     </Tabs>
   );
+}
 
 
-import { MaterialIcons } from '@expo/vector-icons';
 
-function TabBarIcon(props: { name: string }) {
+function TabBarIcon(props: { name: keyof typeof MaterialIcons.glyphMap }) {
   return <MaterialIcons {...props} size={24} color="gray" />; // Using MaterialIcons from the library
 }
