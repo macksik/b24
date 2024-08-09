@@ -1,26 +1,32 @@
-import { Image, StyleSheet, View, Text } from 'react-native';
+import { SafeAreaView, Image, StyleSheet, View, Text } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Image
-          source={require('@/assets/images/image.png')}
-          style={styles.profileImage}
-        />
-        <View style={styles.balanceContainer}>
-          <Text style={styles.balanceText}>Общий баланс</Text>
-          <Text style={styles.balanceAmount}>≈$15,499.99</Text>
+      <SafeAreaView style={styles.safeArea}>
+        <View style={styles.container}>
+          <View style={styles.header}>
+            <Image
+                source={require('@/assets/images/image.png')}
+                style={styles.profileImage}
+            />
+            <View style={styles.balanceContainer}>
+              <Text style={styles.balanceText}>Общий баланс</Text>
+              <Text style={styles.balanceAmount}>≈$15,499.99</Text>
+            </View>
+            <View style={styles.notificationIcon}>
+              <View style={styles.notificationDot} />
+            </View>
+          </View>
         </View>
-        <View style={styles.notificationIcon}>
-          <View style={styles.notificationDot} />
-        </View>
-      </View>
-    </View>
+      </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#fff',
+  },
   container: {
     padding: 16,
     backgroundColor: '#fff',
