@@ -1,37 +1,43 @@
 import { Tabs } from 'expo-router';
-import React from 'react';
+import { MaterialIcons } from '@expo/vector-icons'; // Importing the icon library
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+export default function Layout() {
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+    <Tabs>
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
-          ),
+          tabBarLabel: 'Главная',
+          tabBarIcon: () => <TabBarIcon name="home" />,
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="markets"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
-          ),
+          tabBarLabel: 'Рынки',
+          tabBarIcon: () => <TabBarIcon name="pie-chart" />,
+        }}
+      />
+      <Tabs.Screen
+        name="conversion"
+        options={{
+          tabBarLabel: 'Конвертация',
+          tabBarIcon: () => <TabBarIcon name="pie-chart" />,
+        }}
+      />
+      <Tabs.Screen
+        name="p2p"
+        options={{
+          tabBarLabel: 'P2P',
+          tabBarIcon: () => <TabBarIcon name="sync" />,
         }}
       />
     </Tabs>
   );
+}
+
+
+
+function TabBarIcon(props: { name: keyof typeof MaterialIcons.glyphMap }) {
+  return <MaterialIcons {...props} size={24} color="gray" />; // Using MaterialIcons from the library
 }
