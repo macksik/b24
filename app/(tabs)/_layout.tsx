@@ -1,5 +1,6 @@
 import { Tabs } from 'expo-router';
 import { MaterialIcons } from '@expo/vector-icons';
+import MarketsIcon from "@/assets/icons/markets-ico";
 
 const TabBarIcon = (props: { name: keyof typeof MaterialIcons.glyphMap }) => (
     <MaterialIcons {...props} size={24} color="gray" />
@@ -20,7 +21,7 @@ const Layout = () => {
                 name="markets"
                 options={{
                     tabBarLabel: 'Рынки',
-                    tabBarIcon: () => <TabBarIcon name="pie-chart" />,
+                    tabBarIcon: ({ focused }) => <MarketsIcon focused={focused} />,
                     headerShown: false,
                 }}
             />
