@@ -9,6 +9,7 @@ export default function Layout() {
         options={{
           tabBarLabel: 'Главная',
           tabBarIcon: () => <TabBarIcon name="home" />,
+          headerShown: false
         }}
       />
       <Tabs.Screen
@@ -16,6 +17,7 @@ export default function Layout() {
         options={{
           tabBarLabel: 'Рынки',
           tabBarIcon: () => <TabBarIcon name="pie-chart" />,
+          headerShown: false
         }}
       />
       <Tabs.Screen
@@ -23,6 +25,7 @@ export default function Layout() {
         options={{
           tabBarLabel: 'Конвертация',
           tabBarIcon: () => <TabBarIcon name="pie-chart" />,
+          headerShown: false
         }}
       />
       <Tabs.Screen
@@ -30,6 +33,7 @@ export default function Layout() {
         options={{
           tabBarLabel: 'P2P',
           tabBarIcon: () => <TabBarIcon name="sync" />,
+          headerShown: false
         }}
       />
     </Tabs>
