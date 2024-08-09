@@ -1,8 +1,7 @@
 import { SafeAreaView, Image, StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
-export default function HomeScreen() {
+const HomeScreen = () => {
   return (
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
@@ -15,11 +14,11 @@ export default function HomeScreen() {
               <Text style={styles.balanceText}>Общий баланс</Text>
               <Text style={styles.balanceAmount}>≈$15,499.99</Text>
             </View>
-            <View style={styles.notificationIcon}>
-                <Image
-                    source={require('@/assets/images/bell.png')}
-                    style={styles.notificationIconImage}
-                />
+            <View>
+              <Image
+                  source={require('@/assets/images/bell.png')}
+                  style={styles.notificationIconImage}
+              />
             </View>
           </View>
           <View style={styles.iconContainer}>
@@ -39,7 +38,7 @@ export default function HomeScreen() {
         </View>
       </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   safeArea: {
@@ -106,3 +105,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
 });
+
+export default HomeScreen;
