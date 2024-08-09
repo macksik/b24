@@ -1,10 +1,20 @@
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function ConversionScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Конвертация</Text>
-      {/* Додайте тут ваш компонент для конвертації */}
-    </View>
-  );
-}
+const ConversionScreen = () => {
+    return (
+        <View style={styles.container}>
+            <Text>Конвертация</Text>
+            {/* Додайте тут ваш компонент для конвертації */}
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+
+export default ConversionScreen;

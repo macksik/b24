@@ -1,10 +1,20 @@
-import { View, Text } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 
-export default function MarketsScreen() {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Рынки</Text>
-      {/* Додайте тут ваш компонент для відображення ринків */}
-    </View>
-  );
-}
+const MarketsScreen = () => {
+    return (
+        <View style={styles.container}>
+            <Text>Рынки</Text>
+            {/* Додайте тут ваш компонент для відображення ринків */}
+        </View>
+    );
+};
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+
+export default MarketsScreen;
