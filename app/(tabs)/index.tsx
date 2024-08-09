@@ -45,11 +45,10 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#fff',
-    borderBottomWidth: 1, // додано бордер ботом
-    borderBottomColor: '#ccc', // колір бордера
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
   },
   container: {
-    marginTop: 20,
     padding: 16,
     backgroundColor: '#fff',
     borderBottomWidth: 1,
