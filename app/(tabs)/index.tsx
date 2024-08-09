@@ -14,7 +14,10 @@ export default function HomeScreen() {
               <Text style={styles.balanceAmount}>≈$15,499.99</Text>
             </View>
             <View style={styles.notificationIcon}>
-              <View style={styles.notificationDot} />
+                <Image
+                    source={require('@/assets/images/bell.png')}
+                    style={styles.notificationIconImage}
+                />
             </View>
           </View>
         </View>
@@ -28,6 +31,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   container: {
+    marginTop: 20,
     padding: 16,
     backgroundColor: '#fff',
   },
@@ -54,11 +58,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#000',
   },
-  notificationIcon: {
+  notificationIconImage: {
     width: 24,
     height: 24,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   notificationDot: {
     width: 8,

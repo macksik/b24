@@ -1,50 +1,90 @@
-# Welcome to your Expo app 👋
+neprostostas.gg@gmail.com# 🪙 B24 Wallet App (Test Task)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This project is a TypeScript-based React Native Expo application, inspired by the Binance app. It provides a user-friendly interface for managing cryptocurrency transactions, viewing balances, and monitoring transaction history.
 
-## Get started
+## 📱 Features
 
-1. Install dependencies
+- **Balance Overview:** Display the total balance and individual crypto balances.
+- **Transaction History:** View detailed history of transactions including purchases, sales, exchanges, and their status (received, pending, error).
+- **Responsive Design:** Optimized for mobile screens, ensuring a seamless user experience.
+- **TypeScript Integration:** Full TypeScript support for enhanced code quality and developer experience.
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (v14 or later)
+- [Expo CLI](https://docs.expo.dev/get-started/installation/) (v5 or later)
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/crypto-wallet-app.git
+   cd crypto-wallet-app
+   ```
+
+2. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. **Run the app:**
 
    ```bash
-    npx expo start
+   expo start
    ```
 
-In the output, you'll find options to open the app in a
+   This command will start the development server, and you can run the app on an emulator or a physical device using the Expo Go app.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+### Project Structure
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```plaintext
+.
+├── assets              # Static assets like images and fonts
+├── components          # Reusable components (e.g., TransactionItem)
+├── screens             # Screen components for navigation (e.g., HomeScreen)
+├── App.tsx             # Entry point of the application
+├── README.md           # This file
+└── tsconfig.json       # TypeScript configuration
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 💻 Technologies Used
 
-## Learn more
+- **React Native**: For building the mobile app.
+- **Expo**: For simplifying the React Native development process.
+- **TypeScript**: For static typing and better code maintainability.
 
-To learn more about developing your project with Expo, look at the following resources:
+## 🎨 UI Design
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+The app UI is designed to be clean and intuitive, inspired by modern fintech apps like Binance. It includes:
 
-## Join the community
+- **Card Grid**: Displays cryptocurrency assets with their corresponding balances.
+- **Transaction List**: Scrollable list showing recent transactions with status indicators.
 
-Join our community of developers creating universal apps.
+## 🛠️ Customization
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+Feel free to modify the components and styles to fit your project's needs. The code is modular and well-documented for easy customization.
+
+## 📂 Assets
+
+- Icons and images are located in the `assets` directory.
+- You can replace these with your own assets as needed.
+
+## 🧑‍💻 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request or open an issue.
+
+## 📝 License
+
+This project is licensed under the MIT License.
+
+## 🌐 Links
+
+- [Expo Documentation](https://docs.expo.dev/)
+- [React Native Documentation](https://reactnative.dev/docs/getting-started)
+- [TypeScript Documentation](https://www.typescriptlang.org/docs/)
