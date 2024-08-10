@@ -100,7 +100,7 @@ const HomeScreen = () => {
                 style={styles.bottomSheet}
                 ref={bottomSheetRef}
                 index={0}
-                snapPoints={['25%', '55%', '85%']}
+                snapPoints={['25%', '55%', '93%']}
                 onChange={handleSheetChanges}
             >
               <BottomSheetView style={styles.contentContainer}>
@@ -172,20 +172,20 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: '95%',
+    marginTop: '5%',
   },
   iconItem: {
     alignItems: 'center',
     padding: 10,
   },
   icon: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#147C68',
     borderRadius: 50,
     padding: 7,
   },
   iconText: {
     marginTop: 5,
-    color: '#4CAF50',
+    color: '#147C68',
     fontSize: 14,
   },
   contentContainer: {
