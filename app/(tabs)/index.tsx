@@ -6,6 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import transactions, { Transaction } from '@/data/transactions';
 import { TransactionItem, TransactionItemPending, TransactionItemError, TransactionItemSuccess } from '@/components/TransactionItems';
 import HistoryHeader from "@/components/HistoryHeader";
+import { Collapsible } from '@/components/Collapsible';
 
 const HomeScreen = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -101,6 +102,8 @@ const HomeScreen = () => {
             >
               <BottomSheetView style={styles.contentContainer}>
                 <HistoryHeader />
+                {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                <Text style={styles.yesterdayText}>Вчера</Text>
                 {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
               </BottomSheetView>
             </BottomSheet>
