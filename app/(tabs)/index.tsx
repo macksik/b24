@@ -6,7 +6,6 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import transactions, { Transaction } from '@/data/transactions';
 import { TransactionItem, TransactionItemPending, TransactionItemError, TransactionItemSuccess } from '@/components/TransactionItems';
 import HistoryHeader from "@/components/HistoryHeader";
-import { Collapsible } from '@/components/Collapsible';
 
 const HomeScreen = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
