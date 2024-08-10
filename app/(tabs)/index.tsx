@@ -1,8 +1,24 @@
 import { SafeAreaView, Image, StyleSheet, View, Text } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
+import { useCallback, useRef } from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler'; // Додайте цей імпорт
+import TransactionItem from '@/components/TransactiItem';
+import HistoryHeader from '@/components/HistoryHeader';
+import TransactionItemError from '@/components/TransactionItemError';
+import TransactionItemSuccess from '@/components/TransactionItemSuccess';
+import TransactionItemPending from '@/components/TransactionItemPending';
 
-const HomeScreen = () => {
+export default function HomeScreen() {
+  const bottomSheetRef = useRef<BottomSheet>(null);
+
+  // callbacks
+  const handleSheetChanges = useCallback((index: number) => {
+    console.log('handleSheetChanges', index);
+  }, []);
+
   return (
+    <GestureHandlerRootView style={{ flex: 1 }}>
       <SafeAreaView style={styles.safeArea}>
         <View style={styles.container}>
           <View style={styles.header}>
@@ -14,11 +30,12 @@ const HomeScreen = () => {
               <Text style={styles.balanceText}>Общий баланс</Text>
               <Text style={styles.balanceAmount}>≈$15,499.99</Text>
             </View>
-            <View>
-              <Image
-                  source={require('@/assets/images/bell.png')}
-                  style={styles.notificationIconImage}
-              />
+            <View style={styles.notificationIcon}>
+                <Image
+                    source={require('@/assets/images/bell.png')}
+                    style={styles.notificationIconImage}
+                />
+                <View style={styles.notificationDot} />
             </View>
           </View>
           <View style={styles.iconContainer}>
@@ -35,8 +52,71 @@ const HomeScreen = () => {
               <Text style={styles.iconText}>Обменять</Text>
             </View>
           </View>
+          <BottomSheet
+            style={styles.bottomSheet} // Add this line
+            ref={bottomSheetRef}
+            index={0} // Set the initial index
+            snapPoints={['25%', '55%', '85%']} // Define snap points
+            onChange={handleSheetChanges}
+          >
+            <BottomSheetView style={styles.contentContainer} contentContainerStyle={styles.scrollContentContainer}>
+              <HistoryHeader />
+              <TransactionItem
+                text="Покупка"
+                image={require('@/assets/images/export.png')}
+                date="09 Июня 2024, 00:00"
+                amount="0,432 BTC"
+                status="Получено"
+              />
+              <Text style={styles.yesterdayText}>Вчора</Text>
+              <TransactionItemPending
+                  text="Покупка"
+                  image={require('@/assets/images/export.png')}
+                  date="09 Июня 2024, 00:00"
+                  amount="0,432 BTC"
+                  status="В ожидании"
+                />
+                <TransactionItemError
+                text="Обмен"
+                image={require('@/assets/images/repeat.png')}
+                date="09 Июня 2024, 00:00"
+                amount="0,432 ETH → 0,432 BTC"
+                status="Ошибка"
+              />
+              <TransactionItemSuccess
+                text="Продажа"
+                image={require('@/assets/images/sell.png')}
+                date="09 Июня 2024, 00:00"
+                amount="0.432 BTC"
+                status="Получено"
+              />
+              <Text style={styles.yesterdayText}>09 Июня 2024</Text>
+              <TransactionItem
+                text="Покупка"
+                image={require('@/assets/images/export.png')}
+                date="09 Июня 2024, 00:00"
+                amount="0,432 BTC"
+                status="Получено"
+              />
+              <TransactionItem
+                text="Покупка"
+                image={require('@/assets/images/export.png')}
+                date="09 Июня 2024, 00:00"
+                amount="0,432 BTC"
+                status="Получено"
+              />
+              <TransactionItem
+                text="Покупка"
+                image={require('@/assets/images/export.png')}
+                date="09 Июня 2024, 00:00"
+                amount="0,432 BTC"
+                status="Получено"
+              />
+            </BottomSheetView>
+          </BottomSheet>
         </View>
       </SafeAreaView>
+    </GestureHandlerRootView>
   );
 };
 
@@ -48,15 +128,19 @@ const styles = StyleSheet.create({
     borderBottomColor: '#ccc',
   },
   container: {
-    padding: 16,
     backgroundColor: '#fff',
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+    height: '100%',
   },
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    paddingLeft: 16,
+    paddingRight: 16,
+    width: '100%',
+    paddingBottom: 7,
+    borderBottomWidth: 1,
+    borderBottomColor: '#ccc',
   },
   profileImage: {
     width: 40,
@@ -81,6 +165,9 @@ const styles = StyleSheet.create({
     height: 24,
   },
   notificationDot: {
+    position: 'absolute', // Add this line to position the dot correctly
+    top: 2, // Adjust as needed
+    right: 2, // Adjust as needed
     width: 8,
     height: 8,
     borderRadius: 4,
@@ -89,21 +176,44 @@ const styles = StyleSheet.create({
   iconContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    marginTop: 20,
+    marginTop: '95%',
   },
   iconItem: {
     alignItems: 'center',
+    padding: 10,
   },
   icon: {
     backgroundColor: '#4CAF50',
     borderRadius: 50,
-    padding: 10,
+    padding: 7,
   },
   iconText: {
     marginTop: 5,
     color: '#4CAF50',
     fontSize: 14,
   },
+  contentContainer: {
+    flex: 1,
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  scrollContentContainer: {
+    padding: 160,
+  },
+  bottomSheet: {
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 150 },
+    shadowOpacity: 0.8,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  yesterdayText: {
+    fontSize: 14,
+    color: '#9CA3AF',
+    marginTop: 3,
+    marginBottom: 3,
+  },
+  notificationIcon: {
+    position: 'relative', // Add this line to position the dot correctly
+  },
 });
-
-export default HomeScreen;
