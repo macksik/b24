@@ -6,6 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import transactions, { Transaction } from '@/data/transactions';
 import { TransactionItem, TransactionItemPending, TransactionItemError, TransactionItemSuccess } from '@/components/TransactionItems';
 import HistoryHeader from "@/components/HistoryHeader";
+import AssetsHeader from '@/components/AssetsHeader';
 
 const HomeScreen = () => {
   const bottomSheetRef = useRef<BottomSheet>(null);
@@ -78,6 +79,7 @@ const HomeScreen = () => {
                 <View style={styles.notificationDot} />
               </View>
             </View>
+            <AssetsHeader />
             <View style={styles.iconContainer}>
               <View style={styles.iconItem}>
                 <Icon name="arrow-downward" size={30} color="#fff" style={styles.icon} />
