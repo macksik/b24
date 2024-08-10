@@ -1,25 +1,33 @@
 import React from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, ImageSourcePropType } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const TransactionItemSuccess = ({ text, image, date, amount, status }) => {
+interface TransactionItemSuccessProps {
+  text: string;
+  image: ImageSourcePropType;
+  date: string;
+  amount: string;
+  status: string;
+}
+
+const TransactionItemSuccess: React.FC<TransactionItemSuccessProps> = ({ text, image, date, amount, status }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.iconContainer}>
-        <Image source={image} style={styles.icon} />
-      </View>
-      <View style={styles.detailsContainer}>
-        <Text style={styles.text}>{text}</Text>
-        <Text style={styles.date}>{date}</Text>
-      </View>
-      <View style={styles.amountContainer}>
-        <Text style={styles.amount}>{amount}</Text>
-        <View style={styles.statusContainer}>
-          <Icon name="check-circle-outline" size={16} color="#4CAF50" />
-          <Text style={styles.status}>{status}</Text>
+      <View style={styles.container}>
+        <View style={styles.iconContainer}>
+          <Image source={image} style={styles.icon} />
+        </View>
+        <View style={styles.detailsContainer}>
+          <Text style={styles.text}>{text}</Text>
+          <Text style={styles.date}>{date}</Text>
+        </View>
+        <View style={styles.amountContainer}>
+          <Text style={styles.amount}>{amount}</Text>
+          <View style={styles.statusContainer}>
+            <Icon name="check-circle-outline" size={16} color="#4CAF50" />
+            <Text style={styles.status}>{status}</Text>
+          </View>
         </View>
       </View>
-    </View>
   );
 };
 
