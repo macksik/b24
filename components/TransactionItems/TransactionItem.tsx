@@ -1,9 +1,9 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, ImageSourcePropType } from 'react-native';
 
 type TransactionItemProps = {
   text: string;
-  image: any;
+  image: ImageSourcePropType;
   date: string;
   amount: string;
   status: string;
@@ -11,17 +11,17 @@ type TransactionItemProps = {
 
 const TransactionItem: React.FC<TransactionItemProps> = ({ text, image, date, amount, status }) => {
   return (
-    <View style={styles.container}>
-      <Image source={image} style={styles.image} />
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{text}</Text>
-        <Text style={styles.date}>{date}</Text>
+      <View style={styles.container}>
+        <Image source={image} style={styles.image} />
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{text}</Text>
+          <Text style={styles.date}>{date}</Text>
+        </View>
+        <View style={styles.amountContainer}>
+          <Text style={styles.amount}>{amount}</Text>
+          <Text style={styles.status}>{status}</Text>
+        </View>
       </View>
-      <View style={styles.amountContainer}>
-        <Text style={styles.amount}>{amount}</Text>
-        <Text style={styles.status}>{status}</Text>
-      </View>
-    </View>
   );
 };
 
