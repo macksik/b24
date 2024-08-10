@@ -23,12 +23,13 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   historyText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#000',
   },
   todayText: {
-    fontSize: 16,
+    fontSize: 14,
     color: '#B0B0B0',
+    marginRight: 90,
   },
 });
 
