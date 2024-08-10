@@ -52,7 +52,7 @@ const CardSwiper = () => {
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: 200, // Adjust according to your needs
+        height: 300, // Adjust according to your needs
     },
     card: {
         borderRadius: 10,
