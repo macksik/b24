@@ -1,32 +1,22 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
 import Swiper from 'react-native-swiper';
+import { cardData } from '@/data/cards';
 
-const cardData = [
-    {
-        currency: 'Bitcoin',
-        amount: '0,432 BTC',
-        usdAmount: '$15,499.99',
-        percentageChange: '+4.80%',
-        walletAddress: '1A1zP1eP...7DivfNa',
-        backgroundColor: '#F3D2A0',
-        icon: require('@/assets/images/bitcoin.png'),
-    },
-    {
-        currency: 'Ethereum',
-        amount: '1.2 ETH',
-        usdAmount: '$3,500.00',
-        percentageChange: '+2.75%',
-        walletAddress: '0x12B5e4...4E9aD56',
-        backgroundColor: '#D2E0F3',
-        icon: require('@/assets/images/bitcoin.png'),
-    },
-];
+type CardSwiperProps = {
+    onIndexChanged: (index: number) => void;
+};
 
-const CardSwiper = () => {
+const CardSwiper: React.FC<CardSwiperProps> = ({ onIndexChanged }) => {
     return (
         <View style={styles.wrapper}>
-            <Swiper loop={false} showsPagination={true} dotStyle={styles.dot} activeDotStyle={styles.activeDot}>
+            <Swiper
+                loop={false}
+                showsPagination={true}
+                dotStyle={styles.dot}
+                activeDotStyle={styles.activeDot}
+                onIndexChanged={onIndexChanged}
+            >
                 {cardData.map((card, index) => (
                     <View key={index} style={[styles.card, { backgroundColor: card.backgroundColor }]}>
                         <Image source={card.icon} style={styles.icon} />
@@ -52,7 +42,7 @@ const CardSwiper = () => {
 
 const styles = StyleSheet.create({
     wrapper: {
-        height: 300, // Adjust according to your needs
+        height: 300,
     },
     card: {
         borderRadius: 10,
