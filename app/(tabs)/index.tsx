@@ -6,6 +6,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import transactions, { Transaction } from '@/data/transactions';
 import { TransactionItem, TransactionItemPending, TransactionItemError, TransactionItemSuccess } from '@/components/TransactionItems';
 import HistoryHeader from "@/components/HistoryHeader";
+import AssetsHeader from '@/components/AssetsHeader';
 import CardSwiper from "@/components/SwiperCard/CardSwiper";
 
 const HomeScreen = () => {
@@ -79,6 +80,7 @@ const HomeScreen = () => {
                 <View style={styles.notificationDot} />
               </View>
             </View>
+            <AssetsHeader />
             <CardSwiper />
             <View style={styles.iconContainer}>
               <View style={styles.iconItem}>
@@ -103,6 +105,8 @@ const HomeScreen = () => {
             >
               <BottomSheetView style={styles.contentContainer}>
                 <HistoryHeader />
+                {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                <Text style={styles.yesterdayText}>Вчера</Text>
                 {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
               </BottomSheetView>
             </BottomSheet>
