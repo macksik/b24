@@ -1,45 +1,24 @@
 import { Tabs } from 'expo-router';
-import { MaterialIcons } from '@expo/vector-icons';
-
-const TabBarIcon = (props: { name: keyof typeof MaterialIcons.glyphMap }) => (
-    <MaterialIcons {...props} size={24} color="gray" />
-);
+import tabConfig from '@/config/tabConfig';
+import screenOptions from '@/config/screenOptions';
 
 const Layout = () => {
     return (
-        <Tabs>
-            <Tabs.Screen
-                name="index"
-                options={{
-                    tabBarLabel: 'Главная',
-                    tabBarIcon: () => <TabBarIcon name="home" />,
-                    headerShown: false,
-                }}
-            />
-            <Tabs.Screen
-                name="markets"
-                options={{
-                    tabBarLabel: 'Рынки',
-                    tabBarIcon: () => <TabBarIcon name="pie-chart" />,
-                    headerShown: false,
-                }}
-            />
-            <Tabs.Screen
-                name="conversion"
-                options={{
-                    tabBarLabel: 'Конвертация',
-                    tabBarIcon: () => <TabBarIcon name="pie-chart" />,
-                    headerShown: false,
-                }}
-            />
-            <Tabs.Screen
-                name="p2p"
-                options={{
-                    tabBarLabel: 'P2P',
-                    tabBarIcon: () => <TabBarIcon name="sync" />,
-                    headerShown: false,
-                }}
-            />
+        <Tabs screenOptions={screenOptions}>
+            {tabConfig.map((tab) => (
+                <Tabs.Screen
+                    key={tab.name}
+                    name={tab.name}
+                    options={{
+                        tabBarLabel: tab.label,
+                        tabBarIcon: ({ focused }) => {
+                            const IconComponent = tab.icon;
+                            return <IconComponent focused={focused} />;
+                        },
+                        headerShown: false,
+                    }}
+                />
+            ))}
         </Tabs>
     );
 };
