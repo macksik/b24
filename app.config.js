@@ -15,7 +15,10 @@ export default {
             backgroundColor: "#ffffff"
         },
         ios: {
+<<<<<<< HEAD
             bundleIdentifier: "com.b24.app",
+=======
+>>>>>>> b2e04cb1cfbe38bd93df921c780f3acddd07fc16
             supportsTablet: true
         },
         android: {
