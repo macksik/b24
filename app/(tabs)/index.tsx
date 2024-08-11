@@ -1,8 +1,8 @@
 import React, { useCallback, useRef } from 'react';
-import { SafeAreaView, Image, StyleSheet, View, Text } from 'react-native';
+import { SafeAreaView, Image, StyleSheet, View, Text, StatusBar } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
 import transactions, { Transaction } from '@/data/transactions';
 import { TransactionItem, TransactionItemPending, TransactionItemError, TransactionItemSuccess } from '@/components/TransactionItems';
 import HistoryHeader from "@/components/HistoryHeader";
@@ -67,6 +67,7 @@ const HomeScreen = () => {
 
   return (
       <GestureHandlerRootView style={{ flex: 1 }}>
+        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
         <SafeAreaView style={styles.safeArea}>
           <View style={styles.container}>
             <View style={styles.header}>
@@ -104,10 +105,15 @@ const HomeScreen = () => {
                 onChange={handleSheetChanges}
             >
               <BottomSheetView style={styles.contentContainer}>
-                <HistoryHeader />
-                {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
-                <Text style={styles.yesterdayText}>Вчера</Text>
-                {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                <ScrollView contentContainerStyle={styles.scrollContentContainer}>
+                  <HistoryHeader />
+                  {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                  <Text style={styles.yesterdayText}>Вчера</Text>
+                  {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                  {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                  <Text style={styles.yesterdayText}>Вчера</Text>
+                  {transactions.map((transaction, index) => renderTransactionItem(transaction, index))}
+                </ScrollView>
               </BottomSheetView>
             </BottomSheet>
           </View>
@@ -137,6 +143,9 @@ const styles = StyleSheet.create({
     paddingBottom: 7,
     borderBottomWidth: 1,
     borderBottomColor: '#ccc',
+  },
+  scrollContentContainer: {
+    paddingBottom: 10,
   },
   profileImage: {
     width: 40,
@@ -193,9 +202,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginTop: 10,
   },
-  scrollContentContainer: {
-    // padding: 160,
-  },
   bottomSheet: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 150 },
@@ -208,6 +214,7 @@ const styles = StyleSheet.create({
     color: '#9CA3AF',
     marginTop: 3,
     marginBottom: 3,
+    textAlign: 'center',
   },
   notificationIcon: {
     position: 'relative',
