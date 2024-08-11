@@ -139,16 +139,22 @@ const HomeScreen = () => {
             <AssetsHeader />
             <CardSwiper onIndexChanged={handleSwiperIndexChanged} />
             <View style={styles.iconContainer}>
-              <View style={styles.iconItem}>
-                <Icon name="arrow-downward" size={30} color="#fff" style={styles.icon} />
+            <View style={styles.iconItem}>
+                <View style={styles.iconWrapper}>
+                  <Icon name="arrow-downward" size={30} color="#fff" style={styles.icon} />
+                </View>
                 <Text style={styles.iconText}>Депозит</Text>
               </View>
               <View style={styles.iconItem}>
-                <Icon name="arrow-upward" size={30} color="#fff" style={styles.icon} />
+                <View style={styles.iconWrapper}>
+                  <Icon name="arrow-upward" size={30} color="#fff" style={styles.icon} />
+                </View>
                 <Text style={styles.iconText}>Вывод</Text>
               </View>
               <View style={styles.iconItem}>
-                <Icon name="swap-horiz" size={30} color="#fff" style={styles.icon} />
+                <View style={styles.iconWrapper}>
+                  <Icon name="swap-horiz" size={30} color="#fff" style={styles.icon} />
+                </View>
                 <Text style={styles.iconText}>Обменять</Text>
               </View>
             </View>
@@ -263,10 +269,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 10,
   },
-  icon: {
+  iconWrapper: {
     backgroundColor: '#147C68',
     borderRadius: 50,
-    padding: 7,
+    padding: 14,
   },
   iconText: {
     marginTop: 5,
