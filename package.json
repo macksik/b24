@@ -17,11 +17,8 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.2",
     "@gorhom/bottom-sheet": "^4.6.4",
-<<<<<<< HEAD
     "@react-navigation/native": "^6.0.2",
-=======
     "@react-navigation/native": "^6.1.18",
->>>>>>> b2e04cb1cfbe38bd93df921c780f3acddd07fc16
     "dotenv": "^16.4.5",
     "expo": "~51.0.26",
     "expo-constants": "~16.0.2",

@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-import React, { useCallback, useRef } from 'react';
-import { SafeAreaView, Image, StyleSheet, View, Text, StatusBar } from 'react-native';
-=======
 import React, { useCallback, useRef, useState } from 'react';
 import { SafeAreaView, Image, StyleSheet, View, Text,  StatusBar, Platform } from 'react-native';
->>>>>>> b2e04cb1cfbe38bd93df921c780f3acddd07fc16
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import BottomSheet, { BottomSheetView } from '@gorhom/bottom-sheet';
 import { GestureHandlerRootView, ScrollView } from 'react-native-gesture-handler';
@@ -120,19 +115,16 @@ const HomeScreen = () => {
   };
 
   return (
-      <GestureHandlerRootView style={{ flex: 1 }}>
-<<<<<<< HEAD
-        <StatusBar barStyle="dark-content" backgroundColor="#fff" />
-        <SafeAreaView style={styles.safeArea}>
-          <View style={styles.container}>
-=======
+    <GestureHandlerRootView style={{ flex: 1 }}>
+    <StatusBar barStyle="dark-content" backgroundColor="#fff" />
+    <SafeAreaView style={styles.safeArea}>
+      <View style={styles.container}>
         <StatusBar barStyle="dark-content" backgroundColor={displayedBackgroundColor} />
         <SafeAreaView style={[styles.safeArea, { backgroundColor: displayedBackgroundColor }]}>
           <Animated.View style={styles.container}>
             <Animated.View style={[styles.headerDynamic, textStyle, { backgroundColor: displayedBackgroundColor }]}>
               <Text style={styles.cardTitle}>{cardData[activeCard].currency}: {cardData[activeCard].amount}</Text>
             </Animated.View>
->>>>>>> b2e04cb1cfbe38bd93df921c780f3acddd07fc16
             <View style={styles.header}>
               <Image source={require('@/assets/images/image.png')} style={styles.profileImage} />
               <View style={styles.balanceContainer}>
@@ -181,7 +173,9 @@ const HomeScreen = () => {
             </BottomSheet>
           </Animated.View>
         </SafeAreaView>
-      </GestureHandlerRootView>
+      </View> 
+    </SafeAreaView>
+  </GestureHandlerRootView>
   );
 };
 
@@ -279,25 +273,17 @@ const styles = StyleSheet.create({
     color: '#147C68',
     fontSize: 14,
   },
-<<<<<<< HEAD
   contentContainer: {
     flex: 1,
     alignItems: 'center',
     marginTop: 10,
   },
-=======
->>>>>>> b2e04cb1cfbe38bd93df921c780f3acddd07fc16
   bottomSheet: {
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 150 },
     shadowOpacity: 0.8,
     shadowRadius: 2,
     elevation: 5,
-  },
-  contentContainer: {
-    flex: 1,
-    alignItems: 'center',
-    marginTop: 10,
   },
   yesterdayText: {
     fontSize: 14,
